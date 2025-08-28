@@ -1,0 +1,48 @@
+services:
+  postgres:
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres_db
+    image: postgres:15.3
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
+
+  elasticsearch:
+    image: elasticsearch:7.17.22
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+    depends_on:
+      - postgres
+
+  django:
+    container_name: django_tasks_api
+    build:
+      context: ./
+    env_file:
+      - .env
+    environment:
+      GUNICORN_CMD_ARGS: '--workers 2 --timeout 120 --reload'
+      DJANGO_SUPERUSER_USERNAME: 'admin'
+      DJANGO_SUPERUSER_LAST_NAME: 'Главный'
+      DJANGO_SUPERUSER_FIRST_NAME: 'Админ'
+      DJANGO_SUPERUSER_PASSWORD: 'admin123'
+      DJANGO_SUPERUSER_EMAIL: 'admin@example.com'
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/opt/app/src/
+      - ./pyproject.toml:/opt/app/pyproject.toml
+      - ./poetry.lock:/opt/app/poetry.lock
+    depends_on:
+      - elasticsearch
+
+volumes:
+  postgres_db:
