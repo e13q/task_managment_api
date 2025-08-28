@@ -57,10 +57,10 @@ docker compose up
 
 | Метод                  | URL      | Назначение                     | Примечания                                        |
 | ---------------------- | -------- | ------------------------------ | ------------------------------------------------- |
-| `/admin/`              | GET      | Админка Django                 | Только для суперпользователя                      |
+| `/admin/`              | GET      | Админка Django                 |                      |
 | `/api/token/`          | POST     | Получение токена авторизации   | `{ "username": "admin", "password": "admin123" }` |
-| `/api/auth/`           | GET/POST | DRF стандартная авторизация    | Можно логин/логаут через browsable API            |
-| `/api/tasks/`                | GET/POST | API задач                      |                     |
+| `/api/auth/`           | GET/POST | DRF стандартная авторизация    |            |
+| `/api/tasks/`                | GET/POST/DELETE | API задач                      |                     |
 | `/api/schema/`         | GET      | Автогенерируемая OpenAPI схема | Используется для Swagger/Redoc                    |
 | `/api/schema/swagger/` | GET      | Swagger UI                     | Визуализация API с примерами                      |
 | `/api/schema/redoc/`   | GET      | Redoc UI                       | Альтернатива Swagger UI                           |
