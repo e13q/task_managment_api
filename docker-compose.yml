@@ -33,7 +33,7 @@ services:
       DJANGO_SUPERUSER_USERNAME: 'admin'
       DJANGO_SUPERUSER_LAST_NAME: 'Главный'
       DJANGO_SUPERUSER_FIRST_NAME: 'Админ'
-      DJANGO_SUPERUSER_PASSWORD: 'admin123'
+      DJANGO_SUPERUSER_PASSWORD: 'wefoinioiowenfweionfioew'
       DJANGO_SUPERUSER_EMAIL: 'admin@example.com'
     ports:
       - "8000:8000"

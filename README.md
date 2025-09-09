@@ -28,12 +28,12 @@ Task Manager API позволяет:
 
 Скачайте код:
 ```sh
-git clone 
+git clone https://github.com/e13q/task_managment_api.git
 ```
 
 Перейдите в каталог проекта:
 ```sh
-cd tasks_api
+cd task_managment_api
 ```
 
 Создать и заполнить схему `.env`.
@@ -52,6 +52,13 @@ make update
 ```sh
 docker compose up
 ```
+Можно переходить в админку/api.
+
+Админ предсоздан:
+
+Логин: `admin`
+
+Пароль: `wefoinioiowenfweionfioew`
 
 ## Роутинг
 
